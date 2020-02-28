@@ -194,6 +194,5 @@ During the prompts, enter:
 # 17. Build TensorFlow package
 ```
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
-bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
 ```
