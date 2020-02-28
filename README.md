@@ -56,6 +56,7 @@ pip install jupyter
 pip install matplotlib
 pip install pandas
 pip install opencv-python
+conda install -c anaconda git
 ```
 # 4. Configure PYTHONPATH environment variable
 ```
@@ -163,7 +164,7 @@ conda update --all
 conda create -n tensorflow-build pip python=3.6
 conda activate tensorflow-build
 ```
-Then run these commands:
+Then run these commands: (change PATH depending on which directory msys64 is located in)
 ```
 python -m pip install --upgrade pip
 conda install -c anaconda git
