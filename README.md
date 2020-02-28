@@ -1,4 +1,4 @@
-# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+﻿# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
 I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
 
 table: https://www.tensorflow.org/install/source#tested_build_configurations
@@ -20,6 +20,15 @@ https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Trai
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\libx64
+
+# f. Install Visual C++ Build Tools 2015
+https://visualstudio.microsoft.com/vs/older-downloads/
+
+Download and install the following two packages:
+- Microsoft Build Tools 2015 Update 3
+- Microsoft Visual C++ 2015 Redistributable Update 3
+Restart your computer
+
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
 - All files in \object_detection\images\train and \object_detection\images\test
@@ -145,15 +154,7 @@ pacman -Su
 pacman -S patch unzip
 ```
 
-# 13. Install Visual C++ Build Tools 2015
-https://visualstudio.microsoft.com/vs/older-downloads/
-
-Download and install the following two packages:
-- Microsoft Build Tools 2015 Update 3
-- Microsoft Visual C++ 2015 Redistributable Update 3
-Restart your computer
-
-# 14. Update Anaconda and create tensorflow-build environment
+# 13. Update Anaconda and create tensorflow-build environment
 In Anaconda:
 ```
 conda update -n base -c defaults conda
@@ -168,7 +169,7 @@ conda install -c anaconda git
 set PATH=%PATH%;E:\msys64\usr\bin
 ```
 
-# 15. Download Bazel and Python package dependencies
+# 14. Download Bazel and Python package dependencies
 ```
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
@@ -176,7 +177,7 @@ pip install keras_preprocessing==1.0.5 --no-deps
 conda install -c conda-forge bazel=0.21.0
 ```
 
-# 16. Download TensorFlow source and configure build
+# 15. Download TensorFlow source and configure build
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
@@ -195,7 +196,7 @@ During the prompts, enter:
 - Enter
 - N
 
-# 17. Build TensorFlow package
+# 16. Build TensorFlow package
 ```
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
