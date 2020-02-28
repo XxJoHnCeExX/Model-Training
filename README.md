@@ -88,14 +88,14 @@ item {
 Navigate to C:\tensorflow1\models\research\object_detection\samples\configs and copy the ssd_mobilenet_v2_quantized_300x300_coco.config file into the \object_detection\training directory. 
 Then, open the file with a text editor.
 
--Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
--Line 106. Change fine_tune_checkpoint to:
+- Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
+- Line 106. Change fine_tune_checkpoint to:
 fine_tune_checkpoint : "C:/tensorflow1/models/research/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03/model.ckpt"
--Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
+- Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/train.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
--Line 130. Change num_examples to the number of images you have in the \images\test directory.
--Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
+- Line 130. Change num_examples to the number of images you have in the \images\test directory.
+- Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/test.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
 
