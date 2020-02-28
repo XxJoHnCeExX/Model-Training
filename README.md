@@ -29,9 +29,13 @@ Download and install the following two packages:
 - Microsoft Build Tools 2015 Update 3
 - Microsoft Visual C++ 2015 Redistributable Update 3
 
-Then download and install Microsoft Visual Studio Code:
+Microsoft Visual Studio Code:
 
 https://code.visualstudio.com/
+
+Windows SDK 10:
+
+https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/
 
 Restart your computer
 
