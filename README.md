@@ -172,6 +172,7 @@ set PATH=%PATH%;E:\msys64\usr\bin
 ```
 
 # 15. Download Bazel and Python package dependencies
+Change 'conda install -c conda-forge bazel=0.24.1' to the required version of bazel
 ```
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
@@ -180,13 +181,14 @@ conda install -c conda-forge bazel=0.21.0
 ```
 
 # 16. Download TensorFlow source and configure build
+Change 'git checkout r1.15' to the same version of TensorFlow used for training
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.13
+git checkout r1.15
 python ./configure.py
 ```
 During the prompts, enter:
