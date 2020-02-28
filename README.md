@@ -14,13 +14,12 @@ I used the ssd_mobilenet_v2_quantized_coco model
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
 Place the contents inside C:/tensorflow1/models/research/object_detection.
+https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # e. Add paths to Environment Variables
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\libx64
-
-https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
 - All files in \object_detection\images\train and \object_detection\images\test
