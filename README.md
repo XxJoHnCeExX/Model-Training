@@ -111,7 +111,7 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 
 # 10. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
-I had to downgrade to TensorFlow version 1.15 becaus eof compatibility issues with the code.
+I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
 pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
@@ -157,7 +157,7 @@ conda update --all
 conda create -n tensorflow-build pip python=3.6
 conda activate tensorflow-build
 ```
-Run these commands:
+Then run these commands:
 ```
 python -m pip install --upgrade pip
 conda install -c anaconda git
@@ -179,6 +179,21 @@ mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.15
+git checkout r1.13
 python ./configure.py
+```
+During the prompts, enter:
+- Enter
+- Enter
+- N
+- N
+- N
+- Enter
+- N
+
+# 17. Build TensorFlow package
+```
+bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
+bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package 
+bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
 ```
