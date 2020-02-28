@@ -98,5 +98,5 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 # 10. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder
 ```
-python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
+python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
 ```
