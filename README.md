@@ -4,6 +4,7 @@ table: https://www.tensorflow.org/install/source#tested_build_configurations
 https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
 Create a folder in C:/ and name it tensorflow1 and move the download inside the folder. Rename the folder from "model-master" to "models".
+
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
 I used the ssd_mobilenet_v2_quantized_coco model
