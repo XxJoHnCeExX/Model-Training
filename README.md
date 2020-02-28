@@ -2,7 +2,9 @@
 https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
 https://github.com/tensorflow/models
-# c. Download a specific model
+# c. Download a specific model from Google's Model Zoo
+I used the ssd_mobilenet_v2_quantized_coco model
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
