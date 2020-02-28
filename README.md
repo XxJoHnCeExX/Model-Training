@@ -1,6 +1,8 @@
 # a. Follow this guide for installing Anaconda, CUDA and cuDNN:
 I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
+
 table: https://www.tensorflow.org/install/source#tested_build_configurations
+
 https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
 Create a folder in C:/ and name it tensorflow1 and move the download inside the folder. Rename the folder from "model-master" to "models".
@@ -8,18 +10,21 @@ Create a folder in C:/ and name it tensorflow1 and move the download inside the 
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
 I used the ssd_mobilenet_v2_quantized_coco model
+
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
 Place the contents inside C:/tensorflow1/models/research/object_detection.
+
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
-All files in \object_detection\images\train and \object_detection\images\test
-The “test_labels.csv” and “train_labels.csv” files in \object_detection\images
-All files in \object_detection\training
-All files in \object_detection\inference_graph
+- All files in \object_detection\images\train and \object_detection\images\test
+- The “test_labels.csv” and “train_labels.csv” files in \object_detection\images
+- All files in \object_detection\training
+- All files in \object_detection\inference_graph
 
 # 2. Anaconda
+Run Anaconda as administrator and run these commands:
 ```
 conda create -n tensorflow1 pip python=3.7
 activate tensorflow1
@@ -54,12 +59,14 @@ python setup.py build
 python setup.py install
 ```
 # 6. Test TensorFlow setup to verify it works
+Go into the object detection folder and install pycocotools before running jupyter notebook. Run through the script to see if the object detection is working.
 ```
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 ```
-Gather and Label Pictures
+Gather and Label Pictures (taken from link):
+
 https://github.com/tzutalin/labelImg
 ```
 cd C:\labelImg
@@ -73,8 +80,8 @@ python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 python xml_to_csv.py
 ```
 Open the generate_tfrecord.py file in a text editor and
-replace the label map starting at line 31 with your own label map
-In line 23, change the line to 'import tensorflow.compat.v1 as tf'.
+replace the label map starting at line 31 with your own label map.
+On line 23, change the line to 'import tensorflow.compat.v1 as tf'.
 ```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
@@ -103,7 +110,8 @@ input_path : "C:/tensorflow1/models/research/object_detection/test.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
 
 # 10. Run the Training
-Simply move train.py from /object_detection/legacy into the /object_detection folder
+Simply move train.py from /object_detection/legacy into the /object_detection folder.
+I had to downgrade to TensorFlow version 1.15 becaus eof compatibility issues with the code.
 ```
 pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
