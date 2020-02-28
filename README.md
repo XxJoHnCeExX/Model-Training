@@ -12,8 +12,11 @@ All files in \object_detection\inference_graph
 
 # 2. Anaconda
 conda create -n tensorflow1 pip python=3.7
+
 activate tensorflow1
+
 python -m pip install --upgrade pip
+
 pip install --ignore-installed --upgrade tensorflow-gpu
 
 # 3. Install Packages
@@ -43,7 +46,7 @@ cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 
-3. Gather and Label Pictures
+#Gather and Label Pictures
 https://github.com/tzutalin/labelImg
 cd C:\labelImg
 conda install pyqt=5
