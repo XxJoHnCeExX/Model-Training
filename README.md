@@ -201,6 +201,16 @@ During the prompts, enter:
 - N
 
 # 17. Build TensorFlow package
+First go into the WORSPACE file in the C:/tensorflow-build/tensorflow directory and add the following to the top:
+```
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "dc97fccceacd4c6be14e800b2a00693d5e8d07f69ee187babfd04a80a9f8e250",
+    strip_prefix = "rules_docker-0.14.1",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.1/rules_docker-v0.14.1.tar.gz"],
+)
+```
+Then run the commands:
 ```
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
