@@ -98,5 +98,13 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 # 10. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder
 ```
+pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
+```
+Run until the loss is consistently under 2.
+
+# 11. Export Inference Graph
+issue the following command, where “XXXX” in “model.ckpt-XXXX” should be replaced with the highest-numbered .ckpt file in the training folder:
+```
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_mobilenet_v2_quantized_300x300_coco.config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph
 ```
