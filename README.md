@@ -19,7 +19,7 @@ https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Trai
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
 - All files in \object_detection\images\train and \object_detection\images\test
-- The ìtest_labels.csvî and ìtrain_labels.csvî files in \object_detection\images
+- The ‚Äútest_labels.csv‚Äù and ‚Äútrain_labels.csv‚Äù files in \object_detection\images
 - All files in \object_detection\training
 - All files in \object_detection\inference_graph
 
@@ -119,7 +119,7 @@ python train.py --logtostderr --train_dir=training/ --pipeline_config_path=train
 Run until the loss is consistently under 2.
 
 # 11. Export Inference Graph for TFLite
-issue the following command, where ìXXXXî in ìmodel.ckpt-XXXXî should be replaced with the highest-numbered .ckpt file in the training folder:
+issue the following command, where ‚ÄúXXXX‚Äù in ‚Äúmodel.ckpt-XXXX‚Äù should be replaced with the highest-numbered .ckpt file in the training folder:
 ```
 mkdir TFLite_model
 set CONFIG_FILE=C:\\tensorflow1\models\research\object_detection\training\ssd_mobilenet_v2_quantized_300x300_coco.config
@@ -128,3 +128,15 @@ set OUTPUT_DIR=C:\\tensorflow1\models\research\object_detection\TFLite_model
 python export_tflite_ssd_graph.py --pipeline_config_path=%CONFIG_FILE% --trained_checkpoint_prefix=%CHECKPOINT_PATH% --output_directory=%OUTPUT_DIR% --add_postprocessing_op=true
 ```
 
+# 12. Install MSYS2 
+https://www.msys2.org/
+
+Open MSYS2 and run the commands:
+```
+pacman -Syu
+```
+Close the window, re-open it and issue the commands:
+```
+pacman -Su
+pacman -S patch unzip
+```
