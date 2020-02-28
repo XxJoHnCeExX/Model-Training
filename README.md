@@ -1,7 +1,7 @@
-2a. Download TensorFlow Object Detection API repository from GitHub
+# a. Download TensorFlow Object Detection API repository from GitHub
 https://github.com/tensorflow/models
-2b. Download a specific model
-2c. Download this tutorial's repository from GitHub
+# b. Download a specific model
+# c. Download this tutorial's repository from GitHub
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
@@ -40,6 +40,7 @@ python setup.py install
 
 # 6. Test TensorFlow setup to verify it works
 cd object_detection
+pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 
 3. Gather and Label Pictures
@@ -76,7 +77,7 @@ item {
 #Then, open the file with a text editor.
 Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
 Line 106. Change fine_tune_checkpoint to:
-fine_tune_checkpoint : "C:/tensorflow1/models/research/object_detection/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
+fine_tune_checkpoint : "C:/tensorflow1/models/research/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03/model.ckpt"
 Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/train.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
