@@ -1,7 +1,9 @@
-# a. Download TensorFlow Object Detection API repository from GitHub
+# a. Follow this guide for installing CUDA and CUDNN:
+https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
+# b. Download TensorFlow Object Detection API repository from GitHub
 https://github.com/tensorflow/models
-# b. Download a specific model
-# c. Download this tutorial's repository from GitHub
+# c. Download a specific model
+# d. Download this tutorial's repository from GitHub
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
@@ -50,7 +52,7 @@ cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 ```
-#Gather and Label Pictures
+Gather and Label Pictures
 https://github.com/tzutalin/labelImg
 ```
 cd C:\labelImg
@@ -63,14 +65,15 @@ python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 python xml_to_csv.py
 ```
-#Open the generate_tfrecord.py file in a text editor
-#Replace the label map starting at line 31 with your own label map
+Open the generate_tfrecord.py file in a text editor and
+replace the label map starting at line 31 with your own label map
 ```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
 ```
 # 8. Create Label Map and Configure Training
-#Use a text editor to create a new file and save it as labelmap.pbtxt in the C:\tensorflow1\models\research\object_detection\training folder.
+Use a text editor to create a new file and save it as labelmap.pbtxt in the C:\tensorflow1\models\research\object_detection\training folder.
+```
 item {
   id: 1
   name: 'nine'
@@ -80,23 +83,24 @@ item {
   id: 2
   name: 'ten'
 }
-
+```
 # 9. Configure training
-#Navigate to C:\tensorflow1\models\research\object_detection\samples\configs and copy the ssd_mobilenet_v2_quantized_300x300_coco.config file into the \object_detection\training directory. 
-#Then, open the file with a text editor.
-Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
-Line 106. Change fine_tune_checkpoint to:
+Navigate to C:\tensorflow1\models\research\object_detection\samples\configs and copy the ssd_mobilenet_v2_quantized_300x300_coco.config file into the \object_detection\training directory. 
+Then, open the file with a text editor.
+
+-Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
+-Line 106. Change fine_tune_checkpoint to:
 fine_tune_checkpoint : "C:/tensorflow1/models/research/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03/model.ckpt"
-Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
+-Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/train.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
-Line 130. Change num_examples to the number of images you have in the \images\test directory.
-Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
+-Line 130. Change num_examples to the number of images you have in the \images\test directory.
+-Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/test.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
 
 # 10. Run the Training
-#Simply move train.py from /object_detection/legacy into the /object_detection folder
+Simply move train.py from /object_detection/legacy into the /object_detection folder
 ```
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
 ```
