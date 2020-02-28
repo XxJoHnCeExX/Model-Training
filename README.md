@@ -14,6 +14,7 @@ I used the ssd_mobilenet_v2_quantized_coco model
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
 Place the contents inside C:/tensorflow1/models/research/object_detection.
+
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # e. Add paths to Environment Variables
@@ -78,7 +79,7 @@ cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 ```
-Gather and Label Pictures (taken from link):
+# 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
 ```
@@ -88,7 +89,7 @@ pyrcc5 -o libs/resources.py resources.qrc
 python labelImg.py
 python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
-# 7. Generate Training Data
+# 8. Generate Training Data
 ```
 python xml_to_csv.py
 ```
@@ -99,7 +100,7 @@ On line 23, change the line to 'import tensorflow.compat.v1 as tf'.
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
 ```
-# 8. Create Label Map and Configure Training
+# 9. Create Label Map and Configure Training
 Use a text editor to create a new file and save it as labelmap.pbtxt in the C:\tensorflow1\models\research\object_detection\training folder.
 ```
 item {
@@ -107,7 +108,7 @@ item {
   name: 'bird'
 }
 ```
-# 9. Configure training
+# 10. Configure training
 Navigate to C:\tensorflow1\models\research\object_detection\samples\configs and copy the ssd_mobilenet_v2_quantized_300x300_coco.config file into the \object_detection\training directory. 
 Then, open the file with a text editor.
 
@@ -122,7 +123,7 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 input_path : "C:/tensorflow1/models/research/object_detection/test.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
 
-# 10. Run the Training
+# 11. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
 I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
@@ -131,7 +132,7 @@ python train.py --logtostderr --train_dir=training/ --pipeline_config_path=train
 ```
 Run until the loss is consistently under 2.
 
-# 11. Export Inference Graph for TFLite
+# 12. Export Inference Graph for TFLite
 issue the following command, where “XXXX” in “model.ckpt-XXXX” should be replaced with the highest-numbered .ckpt file in the training folder:
 ```
 mkdir TFLite_model
@@ -141,7 +142,7 @@ set OUTPUT_DIR=C:\\tensorflow1\models\research\object_detection\TFLite_model
 python export_tflite_ssd_graph.py --pipeline_config_path=%CONFIG_FILE% --trained_checkpoint_prefix=%CHECKPOINT_PATH% --output_directory=%OUTPUT_DIR% --add_postprocessing_op=true
 ```
 
-# 12. Install MSYS2 
+# 13. Install MSYS2 
 https://www.msys2.org/
 
 Open MSYS2 and run the commands:
@@ -154,7 +155,7 @@ pacman -Su
 pacman -S patch unzip
 ```
 
-# 13. Update Anaconda and create tensorflow-build environment
+# 14. Update Anaconda and create tensorflow-build environment
 In Anaconda:
 ```
 conda update -n base -c defaults conda
@@ -169,7 +170,7 @@ conda install -c anaconda git
 set PATH=%PATH%;E:\msys64\usr\bin
 ```
 
-# 14. Download Bazel and Python package dependencies
+# 15. Download Bazel and Python package dependencies
 ```
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
@@ -177,7 +178,7 @@ pip install keras_preprocessing==1.0.5 --no-deps
 conda install -c conda-forge bazel=0.21.0
 ```
 
-# 15. Download TensorFlow source and configure build
+# 16. Download TensorFlow source and configure build
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
@@ -196,7 +197,7 @@ During the prompts, enter:
 - Enter
 - N
 
-# 16. Build TensorFlow package
+# 17. Build TensorFlow package
 ```
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
