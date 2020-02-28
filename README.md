@@ -67,6 +67,7 @@ python xml_to_csv.py
 ```
 Open the generate_tfrecord.py file in a text editor and
 replace the label map starting at line 31 with your own label map
+In line 23, change the line to 'import tensorflow.compat.v1 as tf'.
 ```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
@@ -76,12 +77,7 @@ Use a text editor to create a new file and save it as labelmap.pbtxt in the C:\t
 ```
 item {
   id: 1
-  name: 'nine'
-}
-
-item {
-  id: 2
-  name: 'ten'
+  name: 'bird'
 }
 ```
 # 9. Configure training
