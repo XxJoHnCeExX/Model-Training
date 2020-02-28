@@ -1,11 +1,15 @@
-# a. Follow this guide for installing CUDA and CUDNN:
+# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
+table: https://www.tensorflow.org/install/source#tested_build_configurations
 https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
+Create a folder in C:/ and name it tensorflow1 and move the download inside the folder. Rename the folder from "model-master" to "models".
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
 I used the ssd_mobilenet_v2_quantized_coco model
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
+Place the contents inside C:/tensorflow1/models/research/object_detection.
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # 1. If you want to train your own object detector, delete the following files (do not delete the folders):
