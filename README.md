@@ -11,14 +11,12 @@ All files in \object_detection\training
 All files in \object_detection\inference_graph
 
 # 2. Anaconda
+```
 conda create -n tensorflow1 pip python=3.7
-
 activate tensorflow1
-
 python -m pip install --upgrade pip
-
 pip install --ignore-installed --upgrade tensorflow-gpu
-
+```
 # 3. Install Packages
 conda install -c anaconda protobuf
 pip install pillow
