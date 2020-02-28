@@ -177,7 +177,7 @@ Change 'conda install -c conda-forge bazel=0.24.1' to the required version of ba
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
-conda install -c conda-forge bazel=0.21.0
+conda install -c conda-forge bazel=0.24.1
 ```
 
 # 16. Download TensorFlow source and configure build
