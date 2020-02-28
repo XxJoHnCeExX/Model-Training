@@ -23,7 +23,7 @@ https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Trai
 - All files in \object_detection\training
 - All files in \object_detection\inference_graph
 
-# 2. Anaconda
+# 2. Set up new Anaconda virtual environment
 Run Anaconda as administrator and run these commands:
 ```
 conda create -n tensorflow1 pip python=3.7
@@ -43,7 +43,7 @@ pip install matplotlib
 pip install pandas
 pip install opencv-python
 ```
-# 4. Set Path
+# 4. Configure PYTHONPATH environment variable
 ```
 set PYTHONPATH=C:\tensorflow1\models;C:\tensorflow1\models\research;C:\tensorflow1\models\research\slim
 ```
@@ -147,4 +147,38 @@ https://visualstudio.microsoft.com/vs/older-downloads/
 Download and install the following two packages:
 - Microsoft Build Tools 2015 Update 3
 - Microsoft Visual C++ 2015 Redistributable Update 3
+Restart your computer
 
+# 14. Update Anaconda and create tensorflow-build environment
+In Anaconda:
+```
+conda update -n base -c defaults conda
+conda update --all
+conda create -n tensorflow-build pip python=3.6
+conda activate tensorflow-build
+```
+Run these commands:
+```
+python -m pip install --upgrade pip
+conda install -c anaconda git
+set PATH=%PATH%;E:\msys64\usr\bin
+```
+
+# 15. Download Bazel and Python package dependencies
+```
+pip install six numpy wheel
+pip install keras_applications==1.0.6 --no-deps
+pip install keras_preprocessing==1.0.5 --no-deps
+conda install -c conda-forge bazel=0.21.0
+```
+
+# 16. Download TensorFlow source and configure build
+```
+cd /d C:\
+mkdir C:\tensorflow-build
+cd C:\tensorflow-build
+git clone https://github.com/tensorflow/tensorflow.git 
+cd tensorflow 
+git checkout r1.15
+python ./configure.py
+```
