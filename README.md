@@ -1,4 +1,4 @@
-﻿# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
 I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
 
 table: https://www.tensorflow.org/install/source#tested_build_configurations
@@ -18,6 +18,7 @@ Place the contents inside C:/tensorflow1/models/research/object_detection.
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # e. Add paths to Environment Variables
+Change directory to correct drive if necessary
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\libx64
