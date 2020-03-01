@@ -165,9 +165,6 @@ Close the window, re-open it and issue the commands:
 pacman -Su
 pacman -S patch unzip
 ```
-If error occurs: "stderr /usr/bin/bash patch command not found"
-
-Fix: start from step 13
 # 14. Update Anaconda and create tensorflow-build environment
 In Anaconda:
 ```
@@ -226,9 +223,13 @@ Then run the commands:
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
 ```
-If error occurs: "fatal error C1189: #error: LLVM requires at least MSVC 2017"
+Error(1): "stderr /usr/bin/bash patch command not found"
 
-Fix: 
+Fix(1): start from step 13
+
+Error(2): "fatal error C1189: #error: LLVM requires at least MSVC 2017"
+
+Fix(2): 
 # 18. Install TensorFlow and test it out!
 TensorFlow is finally ready to be installed! Open File Explorer and browse to the C:\tmp\tensorflow_pkg folder. Copy the full filename of the .whl file, and paste it in the following command:
 ```
