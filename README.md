@@ -177,7 +177,6 @@ conda activate tensorflow-build
 Then run these commands: (change PATH depending on which directory msys64 is located in)
 ```
 python -m pip install --upgrade pip
-conda install -c anaconda git
 set PATH=%PATH%;E:\msys64\usr\bin
 ```
 
