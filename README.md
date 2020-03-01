@@ -186,6 +186,8 @@ Change 'conda install -c conda-forge bazel=0.24.1' to the required version of ba
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
+conda install -c anaconda openjdk
+conda install -c anaconda vs2013_runtime
 conda install -c conda-forge bazel=0.24.1
 ```
 
