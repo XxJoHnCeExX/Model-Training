@@ -165,7 +165,9 @@ Close the window, re-open it and issue the commands:
 pacman -Su
 pacman -S patch unzip
 ```
+Common error: "stderr /usr/bin/bash patch command not found"
 
+Fix: start from step 13
 # 14. Update Anaconda and create tensorflow-build environment
 In Anaconda:
 ```
