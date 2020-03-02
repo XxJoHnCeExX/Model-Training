@@ -186,11 +186,11 @@ Change 'conda install -c conda-forge bazel=0.24.1' to the required version of ba
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
-conda install -c anaconda openjdk
-conda install -c anaconda vs2013_runtime
+#conda install -c anaconda openjdk
+#conda install -c anaconda vs2013_runtime
 conda install -c conda-forge bazel=0.24.1
 ```
-
+Min: 24.1; Max: 26.1
 # 16. Download TensorFlow source and configure build
 Change 'git checkout r1.15' to the same version of TensorFlow used for training
 ```
@@ -223,6 +223,8 @@ http_archive(
 ```
 Then run the commands:
 ```
+try: bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
+add: --define=no_tensorflow_py_deps=true (to avoid issue with package creation)
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
 ```
