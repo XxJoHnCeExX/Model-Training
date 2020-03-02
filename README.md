@@ -170,7 +170,7 @@ In Anaconda:
 ```
 conda update -n base -c defaults conda
 conda update --all
-conda install -c anaconda vs2015_runtime
+#conda install -c anaconda vs2015_runtime
 conda create -n tensorflow-build pip python=3.6
 conda activate tensorflow-build
 ```
