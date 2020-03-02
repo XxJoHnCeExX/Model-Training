@@ -50,7 +50,7 @@ Restart your computer
 # 2. Set up new Anaconda virtual environment
 Run Anaconda as administrator and run these commands:
 ```
-conda create -n tensorflow1 pip python=3.7
+conda create -n tensorflow1 pip python=3.6
 activate tensorflow1
 python -m pip install --upgrade pip
 pip install --ignore-installed --upgrade tensorflow-gpu
