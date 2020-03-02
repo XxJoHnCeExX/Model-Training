@@ -1,5 +1,5 @@
 # a. Follow this guide for installing Anaconda, CUDA and cuDNN:
-I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
+I downloaded CUDA v10.0 and cuDNN v7.4, but check the table for compatibility:
 
 table: https://www.tensorflow.org/install/source#tested_build_configurations
 
@@ -19,9 +19,9 @@ https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Trai
 
 # e. Add paths to Environment Variables
 Change directory to correct drive if necessary
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\libx64
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\libnvvp
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\extras\CUPTI\libx64
 
 # f. Install Visual C++ Build Tools 2015
 https://visualstudio.microsoft.com/vs/older-downloads/
@@ -89,7 +89,9 @@ Go into the object detection folder and install pycocotools before running jupyt
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
+pip install --ignore-installed --upgrade tensorflow-gpu==1.13.0
 ```
+I downgrade to TensorFlow 1.13 for the rest of this tutorial for compatibility issues.
 # 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
@@ -136,9 +138,7 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 
 # 11. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
-I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
-pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
 ```
 Run until the loss is consistently under 2.
@@ -170,7 +170,6 @@ In Anaconda:
 ```
 conda update -n base -c defaults conda
 conda update --all
-#conda install -c anaconda vs2015_runtime
 conda create -n tensorflow-build pip python=3.6
 conda activate tensorflow-build
 ```
@@ -186,20 +185,18 @@ Change 'conda install -c conda-forge bazel=0.24.1' to the required version of ba
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
-#conda install -c anaconda openjdk
-#conda install -c anaconda vs2013_runtime
-conda install -c conda-forge bazel=0.24.1
+conda install -c conda-forge bazel=0.19.2
 ```
 Min: 24.1; Max: 26.1
 # 16. Download TensorFlow source and configure build
-Change 'git checkout r1.15' to the same version of TensorFlow used for training
+Change 'git checkout r1.13' to the same version of TensorFlow used for training
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.15
+git checkout r1.13
 python ./configure.py
 ```
 During the prompts, enter:
