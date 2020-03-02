@@ -89,7 +89,7 @@ Go into the object detection folder and install pycocotools before running jupyt
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
-pip install --ignore-installed --upgrade tensorflow-gpu==1.13.0
+pip install --ignore-installed --upgrade tensorflow-gpu==1.13.1
 ```
 I downgrade to TensorFlow 1.13 for the rest of this tutorial for compatibility issues.
 # 7. Gather and Label Pictures (taken from link):
