@@ -1,5 +1,5 @@
-# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
-I downloaded CUDA v10.0 and cuDNN v7.4, but check the table for compatibility:
+﻿# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
 
 table: https://www.tensorflow.org/install/source#tested_build_configurations
 
@@ -9,8 +9,6 @@ Create a folder in C:/ and name it tensorflow1 and move the download inside the 
 
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
-Add the file into the object_detection folder.
-
 I used the ssd_mobilenet_v2_quantized_coco model
 
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
@@ -20,10 +18,9 @@ Place the contents inside C:/tensorflow1/models/research/object_detection.
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # e. Add paths to Environment Variables
-Change directory to correct drive if necessary
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\libnvvp
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\extras\CUPTI\libx64
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\CUPTI\libx64
 
 # f. Install Visual C++ Build Tools 2015
 https://visualstudio.microsoft.com/vs/older-downloads/
@@ -55,7 +52,7 @@ Run Anaconda as administrator and run these commands:
 conda create -n tensorflow1 pip python=3.7
 activate tensorflow1
 python -m pip install --upgrade pip
-pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
+pip install --ignore-installed --upgrade tensorflow-gpu
 ```
 # 3. Install Packages
 ```
@@ -90,11 +87,8 @@ Go into the object detection folder and install pycocotools before running jupyt
 ```
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
-pip install --ignore-installed --upgrade tensorflow-gpu==2.0.0
 jupyter notebook object_detection_tutorial.ipynb
-pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
-I downgrade to TensorFlow 1.14 for the rest of this tutorial for compatibility issues.
 # 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
@@ -109,16 +103,9 @@ python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 python xml_to_csv.py
 ```
-Open the generate_tfrecord.py file in a text editor and on line 23, change the line to 'import tensorflow.compat.v1 as tf'.
-Then replace the label map starting at line 31 with your own label map. This was mine:
-```
-def class_text_to_int(row_label):
-    if row_label == 'bird':
-        return 1
-    else:
-        None
-```
-Then run the commands:
+Open the generate_tfrecord.py file in a text editor and
+replace the label map starting at line 31 with your own label map.
+On line 23, change the line to 'import tensorflow.compat.v1 as tf'.
 ```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
@@ -136,19 +123,21 @@ Navigate to C:\tensorflow1\models\research\object_detection\samples\configs and 
 Then, open the file with a text editor.
 
 - Line 9. Change num_classes to the number of different objects you want the classifier to detect. For the above basketball, shirt, and shoe detector, it would be num_classes : 3 .
-- Line 156. Change fine_tune_checkpoint to:
+- Line 106. Change fine_tune_checkpoint to:
 fine_tune_checkpoint : "C:/tensorflow1/models/research/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03/model.ckpt"
-- Lines 175 and 177. In the train_input_reader section, change input_path and label_map_path to:
+- Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/train.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
-- Line 181. Change num_examples to the number of images you have in the \images\test directory.
-- Lines 189 and 191. In the eval_input_reader section, change input_path and label_map_path to:
+- Line 130. Change num_examples to the number of images you have in the \images\test directory.
+- Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
 input_path : "C:/tensorflow1/models/research/object_detection/test.record"
 label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelmap.pbtxt"
 
 # 11. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
+I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
+pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
 ```
 Run until the loss is consistently under 2.
@@ -175,6 +164,7 @@ Close the window, re-open it and issue the commands:
 pacman -Su
 pacman -S patch unzip
 ```
+
 # 14. Update Anaconda and create tensorflow-build environment
 In Anaconda:
 ```
@@ -186,6 +176,7 @@ conda activate tensorflow-build
 Then run these commands: (change PATH depending on which directory msys64 is located in)
 ```
 python -m pip install --upgrade pip
+conda install -c anaconda git
 set PATH=%PATH%;E:\msys64\usr\bin
 ```
 
@@ -197,16 +188,16 @@ pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
 conda install -c conda-forge bazel=0.24.1
 ```
-Min: 24.1; Max: 26.1
+
 # 16. Download TensorFlow source and configure build
-Change 'git checkout r1.14' to the same version of TensorFlow used for training
+Change 'git checkout r1.15' to the same version of TensorFlow used for training
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.14
+git checkout r1.15
 python ./configure.py
 ```
 During the prompts, enter:
@@ -230,18 +221,10 @@ http_archive(
 ```
 Then run the commands:
 ```
-try: bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
-add: --define=no_tensorflow_py_deps=true (to avoid issue with package creation)
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
 ```
-Error (1): "stderr /usr/bin/bash patch command not found"
 
-Fix (1): start from step 13
-
-Error (2): "fatal error C1189: #error: LLVM requires at least MSVC 2017"
-
-Fix (2): 
 # 18. Install TensorFlow and test it out!
 TensorFlow is finally ready to be installed! Open File Explorer and browse to the C:\tmp\tensorflow_pkg folder. Copy the full filename of the .whl file, and paste it in the following command:
 ```
