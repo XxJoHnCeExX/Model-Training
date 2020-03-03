@@ -88,6 +88,7 @@ Go into the object detection folder and install pycocotools before running jupyt
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
+pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 ```
 # 7. Gather and Label Pictures (taken from link):
 
@@ -137,7 +138,6 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
 I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
-pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
 ```
 Run until the loss is consistently under 2.
