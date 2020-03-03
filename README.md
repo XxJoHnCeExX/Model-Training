@@ -55,7 +55,7 @@ Run Anaconda as administrator and run these commands:
 conda create -n tensorflow1 pip python=3.7
 activate tensorflow1
 python -m pip install --upgrade pip
-pip install --ignore-installed --upgrade tensorflow-gpu
+pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
 # 3. Install Packages
 ```
@@ -90,6 +90,7 @@ Go into the object detection folder and install pycocotools before running jupyt
 ```
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+pip install --ignore-installed --upgrade tensorflow-gpu
 jupyter notebook object_detection_tutorial.ipynb
 pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
