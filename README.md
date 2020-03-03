@@ -108,9 +108,15 @@ python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 python xml_to_csv.py
 ```
-Open the generate_tfrecord.py file in a text editor and
-replace the label map starting at line 31 with your own label map.
-On line 23, change the line to 'import tensorflow.compat.v1 as tf'.
+Open the generate_tfrecord.py file in a text editor and on line 23, change the line to 'import tensorflow.compat.v1 as tf'.
+Then replace the label map starting at line 31 with your own label map. This was mine:
+```
+def class_text_to_int(row_label):
+    if row_label == 'bird':
+        return 1
+    else:
+        None
+```
 ```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
