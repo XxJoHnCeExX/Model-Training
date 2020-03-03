@@ -90,7 +90,7 @@ pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonA
 jupyter notebook object_detection_tutorial.ipynb
 pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 ```
-I downgrade to TF 1.15 for the rest of this tutroail due to code issues.
+I downgrade to TF 1.15 for the rest of this tutorial due to code issues.
 # 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
@@ -166,9 +166,9 @@ pacman -S patch unzip
 ```
 
 # 14. Update Anaconda and create tensorflow-build environment
-In Anaconda: (Note: I change to TF 1.14 for compatibility)
+In Anaconda: (Note: I change to TF 1.14 to resolve later compatibility issues)
 ```
-pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
+pip install --ignore-installed --upgrade tensorflow==1.14.0
 conda update -n base -c defaults conda
 conda update --all
 conda create -n tensorflow-build pip python=3.6
