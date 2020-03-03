@@ -91,9 +91,9 @@ Go into the object detection folder and install pycocotools before running jupyt
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
-pip install --ignore-installed --upgrade tensorflow-gpu==1.13.1
+pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
-I downgrade to TensorFlow 1.13 for the rest of this tutorial for compatibility issues.
+I downgrade to TensorFlow 1.14 for the rest of this tutorial for compatibility issues.
 # 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
@@ -194,18 +194,18 @@ Change 'conda install -c conda-forge bazel=0.24.1' to the required version of ba
 pip install six numpy wheel
 pip install keras_applications==1.0.6 --no-deps
 pip install keras_preprocessing==1.0.5 --no-deps
-conda install -c conda-forge bazel=0.19.2
+conda install -c conda-forge bazel=0.24.1
 ```
 Min: 24.1; Max: 26.1
 # 16. Download TensorFlow source and configure build
-Change 'git checkout r1.13' to the same version of TensorFlow used for training
+Change 'git checkout r1.14' to the same version of TensorFlow used for training
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.13
+git checkout r1.14
 python ./configure.py
 ```
 During the prompts, enter:
