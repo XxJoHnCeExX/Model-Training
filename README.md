@@ -1,4 +1,4 @@
-﻿# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+# a. Follow this guide for installing Anaconda, CUDA and cuDNN:
 I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
 
 table: https://www.tensorflow.org/install/source#tested_build_configurations
@@ -49,7 +49,7 @@ Restart your computer
 # 2. Set up new Anaconda virtual environment
 Run Anaconda as administrator and run these commands:
 ```
-conda create -n tensorflow1 pip python=3.7
+conda create -n tensorflow1 pip python=3.6
 activate tensorflow1
 python -m pip install --upgrade pip
 pip install --ignore-installed --upgrade tensorflow-gpu
@@ -90,6 +90,7 @@ pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonA
 jupyter notebook object_detection_tutorial.ipynb
 pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 ```
+I downgrade to TF 1.15 for the rest of this tutroail due to code issues.
 # 7. Gather and Label Pictures (taken from link):
 
 https://github.com/tzutalin/labelImg
@@ -136,7 +137,6 @@ label_map_path: "C:/tensorflow1/models/research/object_detection/training/labelm
 
 # 11. Run the Training
 Simply move train.py from /object_detection/legacy into the /object_detection folder.
-I had to downgrade to TensorFlow version 1.15 because of compatibility issues with the code.
 ```
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v2_quantized_300x300_coco.config
 ```
@@ -166,8 +166,9 @@ pacman -S patch unzip
 ```
 
 # 14. Update Anaconda and create tensorflow-build environment
-In Anaconda:
+In Anaconda: (Note: I change to TF 1.14 for compatibility)
 ```
+pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 conda update -n base -c defaults conda
 conda update --all
 conda create -n tensorflow-build pip python=3.6
@@ -190,14 +191,14 @@ conda install -c conda-forge bazel=0.24.1
 ```
 
 # 16. Download TensorFlow source and configure build
-Change 'git checkout r1.15' to the same version of TensorFlow used for training
+Change 'git checkout r1.14' to the same version of TensorFlow used for training
 ```
 cd /d C:\
 mkdir C:\tensorflow-build
 cd C:\tensorflow-build
 git clone https://github.com/tensorflow/tensorflow.git 
 cd tensorflow 
-git checkout r1.15
+git checkout r1.14
 python ./configure.py
 ```
 During the prompts, enter:
@@ -210,16 +211,7 @@ During the prompts, enter:
 - N
 
 # 17. Build TensorFlow package
-First go into the WORSPACE file in the C:/tensorflow-build/tensorflow directory and add the following to the top:
-```
-http_archive(
-    name = "io_bazel_rules_docker",
-    sha256 = "dc97fccceacd4c6be14e800b2a00693d5e8d07f69ee187babfd04a80a9f8e250",
-    strip_prefix = "rules_docker-0.14.1",
-    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.1/rules_docker-v0.14.1.tar.gz"],
-)
-```
-Then run the commands:
+Run the commands:
 ```
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package 
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg 
