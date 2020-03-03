@@ -9,7 +9,8 @@ Create a folder in C:/ and name it tensorflow1 and move the download inside the 
 
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
-Add the file into the object_detection folder
+Add the file into the object_detection folder.
+
 I used the ssd_mobilenet_v2_quantized_coco model
 
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
