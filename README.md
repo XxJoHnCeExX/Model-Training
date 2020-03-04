@@ -231,7 +231,7 @@ exit()
 Create optimized TensorFlow Lite model
 ```
 activate tensorflow-build
-cd C:\tensorflow-build
+cd C:\tensorflow-build\tensorflow
 set OUTPUT_DIR=C:\\tensorflow1\models\research\object_detection\TFLite_model
 ```
 ```
