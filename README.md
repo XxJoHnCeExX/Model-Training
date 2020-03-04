@@ -1,23 +1,24 @@
 # a. Follow this guide for installing Anaconda, CUDA and cuDNN:
+https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
+
 I downloaded CUDA v10.0 and cuDNN v7.4 for TensorFlow 1.14, but check the table for compatibility:
 
 Table: https://www.tensorflow.org/install/source#tested_build_configurations
 
-https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
 File: https://github.com/tensorflow/models/archive/master.zip
 
 Create a folder in C:/ and name it tensorflow1 and move the download inside the folder. Rename the folder from "model-master" to "models".
 
-https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
 File: http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 
 Place the file inside C:\tensorflow1\models\research\object_detection
-# d. Download this tutorial's repository from GitHub
-Place the contents inside C:/tensorflow1/models/research/object_detection.
 
+# d. Download this tutorial's repository from GitHub
 File: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10/archive/master.zip
+
+Place the contents inside C:/tensorflow1/models/research/object_detection.
 
 # e. Add paths to Environment Variables
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
