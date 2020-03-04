@@ -11,6 +11,8 @@ https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
 I used the ssd_mobilenet_v2_quantized_coco model
 
+File: http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # d. Download this tutorial's repository from GitHub
 Place the contents inside C:/tensorflow1/models/research/object_detection.
