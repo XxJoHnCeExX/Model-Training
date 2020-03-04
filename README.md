@@ -1,23 +1,23 @@
 # a. Follow this guide for installing Anaconda, CUDA and cuDNN:
-I downloaded CUDA v10.1 and cuDNN v7.6, but check the table for compatibility:
+I downloaded CUDA v10.0 and cuDNN v7.4 for TensorFlow 1.14, but check the table for compatibility:
 
-table: https://www.tensorflow.org/install/source#tested_build_configurations
+Table: https://www.tensorflow.org/install/source#tested_build_configurations
 
 https://github.com/markjay4k/How-To-Install-TensorFlow-GPU/blob/master/How%20To%20Install%20TensorFlow%201.4.ipynb
 # b. Download TensorFlow Object Detection API repository from GitHub
+File: https://github.com/tensorflow/models/archive/master.zip
+
 Create a folder in C:/ and name it tensorflow1 and move the download inside the folder. Rename the folder from "model-master" to "models".
 
 https://github.com/tensorflow/models
 # c. Download a specific model from Google's Model Zoo
-I used the ssd_mobilenet_v2_quantized_coco model from https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
-
 File: http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+
+Place the file inside C:\tensorflow1\models\research\object_detection
 # d. Download this tutorial's repository from GitHub
 Place the contents inside C:/tensorflow1/models/research/object_detection.
 
 File: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10/archive/master.zip
-
-https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
 # e. Add paths to Environment Variables
 - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
@@ -28,8 +28,8 @@ https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Trai
 https://visualstudio.microsoft.com/vs/older-downloads/
 
 Download and install the following two packages:
-- Microsoft Build Tools 2015 Update 3
-- Microsoft Visual C++ 2015 Redistributable Update 3
+- Microsoft Build Tools 2015 Update 3: https://download.microsoft.com/download/5/F/7/5F7ACAEB-8363-451F-9425-68A90F98B238/visualcppbuildtools_full.exe
+- Microsoft Visual C++ 2015 Redistributable Update 3: https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x86.exe
 
 Microsoft Visual Studio Code:
 
@@ -94,8 +94,6 @@ pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 ```
 I downgrade to TF 1.15 for the rest of this tutorial due to code issues.
 # 7. Gather and Label Pictures (taken from link):
-
-https://github.com/tzutalin/labelImg
 ```
 cd C:\labelImg
 conda install pyqt=5
