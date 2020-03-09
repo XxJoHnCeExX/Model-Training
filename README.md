@@ -50,6 +50,8 @@ Restart your computer
 - All files in \object_detection\inference_graph
 
 Then, place your own pictures in the train(80%) and test(20%) folders
+
+Make sure each picture is at max 720x1280 and less than 200KB each.
 # 2. Set up new Anaconda virtual environment
 Run Anaconda as administrator and run these commands:
 ```
