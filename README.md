@@ -49,6 +49,7 @@ Restart your computer
 - All files in \object_detection\training
 - All files in \object_detection\inference_graph
 
+Then, place your own pictures in the train(80%) and test(20%) folders
 # 2. Set up new Anaconda virtual environment
 Run Anaconda as administrator and run these commands:
 ```
@@ -91,9 +92,11 @@ Go into the object detection folder and install pycocotools before running jupyt
 cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
+```
+I downgrade to TF 1.15 for the rest of this tutorial due to code issues:
+```
 pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
 ```
-I downgrade to TF 1.15 for the rest of this tutorial due to code issues.
 # 7. Gather and Label Pictures (taken from link):
 ```
 cd C:\labelImg
