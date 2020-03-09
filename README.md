@@ -109,6 +109,7 @@ python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 # 8. Generate Training Data
 ```
+cd /d C:\tensorflow1\models\research\object_detection
 python xml_to_csv.py
 ```
 Open the generate_tfrecord.py file in a text editor and
