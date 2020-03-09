@@ -97,7 +97,7 @@ jupyter notebook object_detection_tutorial.ipynb
 ```
 I downgrade to TF 1.15 for the rest of this tutorial due to code issues:
 ```
-pip install --ignore-installed --upgrade tensorflow-gpu==1.15.0
+pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
 # 7. Gather and Label Pictures (taken from link):
 ```
