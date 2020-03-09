@@ -95,7 +95,7 @@ cd object_detection
 pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 jupyter notebook object_detection_tutorial.ipynb
 ```
-I downgrade to TF 1.15 for the rest of this tutorial due to code issues:
+I downgrade to TF 1.14 for the rest of this tutorial due to code issues:
 ```
 pip install --ignore-installed --upgrade tensorflow-gpu==1.14.0
 ```
