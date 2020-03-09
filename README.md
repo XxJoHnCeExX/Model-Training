@@ -227,7 +227,7 @@ bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg
 # 18. Install TensorFlow and test it out!
 TensorFlow is finally ready to be installed! Open File Explorer and browse to the C:\tmp\tensorflow_pkg folder. Copy the full filename of the .whl file, and paste it in the following command:
 ```
-pip3 install C:/tmp/tensorflow_pkg/<Paste full .whl filename here>
+pip install C:/tmp/tensorflow_pkg/<Paste full .whl filename here>
 python
 import tensorflow as tf
 tf.__version__
